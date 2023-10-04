@@ -39,10 +39,12 @@ while lives > 0 :
             print ("last life, be carful")
 if lives == 0:
     print("no more lives")
-    print("you missed these countries", countries)
+    print("you missed these countries : ")
+    print(*countries, sep = ", ")
 import time
 while score == 54:
+    if len(countries) > 1:
+        print ("Cheater.")
+        break
     print("congratulations! you won!")
     time.sleep(1)
-    
-

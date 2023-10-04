@@ -1,19 +1,37 @@
-countries =["Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde", "Cameroon", "Central African Republic", "Chad", "Comoros", "Ivory Coast", "Djibouti", "Democratic Republic of the Congo", "Egypt", "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Republic of the Congo", "Rwanda", "Sao Tome &Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia", "Uganda", "Zambia", "Zimbabwe"]
+countries =["algeria", "angola", "benin", "botswana", "burkina faso", "burundi", "cabo verde", "cameroon", "central african republic", "chad", "comoros", "ivory coast", "djibouti", "democratic republic of the congo", "egypt", "equatorial guinea", "eritrea", "eswatini", "ethiopia", "gabon", "gambia", "ghana", "guinea", "guinea-bissau", "kenya", "lesotho", "liberia", "libya", "madagascar", "malawi", "mali", "mauritania", "mauritius", "morocco", "mozambique", "namibia", "niger", "nigeria", "republic of the congo", "rwanda", "sao tome & principe", "senegal", "seychelles", "sierra leone", "somalia", "south africa", "south sudan", "sudan", "tanzania", "togo", "tunisia", "uganda", "zambia", "zimbabwe"] #signed by 1ntl
 print (" --- Countries Of Africa --- ")
+difficulty = input ("please select difficulty : Easy - Medium - Hard : ")
+option = True
+while option:
+    difficulty = str.lower(difficulty)
+    if difficulty == 'easy' or difficulty == 'medium' or difficulty == 'hard':
+        print (difficulty, "difficlulty selected")
+        option = False
+    else:
+        print ("invalid selection, make sure to select from list")
+        difficulty = input ("please select difficulty : Easy - Medium - Hard : ")
 score = 0
-lives = 3
+if difficulty == 'easy':
+    lives = 10
+if difficulty == 'medium':
+    lives = 5
+if difficulty == 'hard':
+    lives = 3
 while lives > 0 :
     if (len(countries) == 0):
         break
-    print("Number of countries to guess")
-    print(len(countries))
+    if score == 54:
+        break
+    print("Number of countries to guess :",len(countries))
     print("score : ",score)
     print("lives left : ",lives)
     country = input("Enter the name of a country : ")
+    country = str.lower(country)
     if country in countries:
         print ("good guess")
         score = score + 1
         countries.remove(country)
+        
     else:
         print("invalid guess")
         lives = lives - 1
@@ -22,5 +40,9 @@ while lives > 0 :
 if lives == 0:
     print("no more lives")
     print("you missed these countries", countries)
-if score == 54:
-    print("you win")
+import time
+while score == 54:
+    print("congratulations! you won!")
+    time.sleep(1)
+    
+
