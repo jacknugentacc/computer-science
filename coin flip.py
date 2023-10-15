@@ -9,7 +9,7 @@ while True:
         while True:
             PlayerSide = input('choose a side! Heads or Tails (h/t) : ')
             PlayerSide = str.lower(PlayerSide)
-            if PlayerSide == 'h'
+            if PlayerSide == 'h':
                 SideChosen = True
                 break        
             elif PlayerSide == 't':
